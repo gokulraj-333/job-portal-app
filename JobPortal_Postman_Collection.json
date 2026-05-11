@@ -1,0 +1,178 @@
+{
+  "info": {
+    "name": "Job Portal API",
+    "description": "Postman collection for testing the Spring Boot Job Portal. Note: Because the backend uses Session IDs, you must run the Login request before running other authenticated requests.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "User Endpoints",
+      "item": [
+        {
+          "name": "User Signup",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                { "key": "name", "value": "Test User", "type": "text" },
+                { "key": "email", "value": "testuser@example.com", "type": "text" },
+                { "key": "mobile", "value": "1234567890", "type": "text" },
+                { "key": "password", "value": "password123", "type": "text" },
+                { "key": "dob", "value": "2000-01-01", "type": "text" },
+                { "key": "gender", "value": "male", "type": "text" }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:8081/user/signup",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["user", "signup"]
+            }
+          }
+        },
+        {
+          "name": "User Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                { "key": "email", "value": "testuser@example.com", "type": "text" },
+                { "key": "password", "value": "password123", "type": "text" }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:8081/user/login",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["user", "login"]
+            }
+          }
+        },
+        {
+          "name": "View Jobs (Requires Login)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/user/view-jobs",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["user", "view-jobs"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Recruiter Endpoints",
+      "item": [
+        {
+          "name": "Recruiter Signup",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                { "key": "fullname", "value": "Test Recruiter", "type": "text" },
+                { "key": "email", "value": "recruiter@example.com", "type": "text" },
+                { "key": "mobile", "value": "0987654321", "type": "text" },
+                { "key": "password", "value": "password123", "type": "text" },
+                { "key": "gender", "value": "male", "type": "text" },
+                { "key": "companyname", "value": "Tech Corp", "type": "text" },
+                { "key": "companylocation", "value": "New York", "type": "text" }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:8081/recruiter/signup",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["recruiter", "signup"]
+            }
+          }
+        },
+        {
+          "name": "Recruiter Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                { "key": "email", "value": "recruiter@example.com", "type": "text" },
+                { "key": "password", "value": "password123", "type": "text" }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:8081/recruiter/login",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["recruiter", "login"]
+            }
+          }
+        },
+        {
+          "name": "Add Job (Requires Login)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                { "key": "title", "value": "Software Engineer", "type": "text" },
+                { "key": "description", "value": "Develop cool things", "type": "text" },
+                { "key": "skills", "value": "Java, Spring Boot", "type": "text" },
+                { "key": "experience", "value": "2", "type": "text" },
+                { "key": "ctc", "value": "10", "type": "text" },
+                { "key": "location", "value": "Remote", "type": "text" },
+                { "key": "numberOfPositions", "value": "5", "type": "text" }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:8081/recruiter/add-job",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["recruiter", "add-job"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Admin Endpoints",
+      "item": [
+        {
+          "name": "Admin Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                { "key": "email", "value": "admin", "type": "text" },
+                { "key": "password", "value": "admin", "type": "text" }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:8081/admin/login",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["admin", "login"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
